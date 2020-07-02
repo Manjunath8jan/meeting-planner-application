@@ -205,40 +205,32 @@
 </div>
 </div>
   
-<div class="card ">
+<div class="card">
     <div class="card-header">
-        {{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}
+        Event Details
     </div>
     
     <div class="card-body">
-        <div [ngSwitch]="view">
-            <mwl-calendar-month-view
-              *ngSwitchCase="CalendarView.Month"
-              [viewDate]="viewDate"
-              [events]="events"
-              [refresh]="refresh"
-              [activeDayIsOpen]="activeDayIsOpen"
-              (dayClicked)="dayClicked($event.day)"
-              (eventClicked)="handleEvent('Clicked', $event.event)"
-              (eventTimesChanged)="eventTimesChanged($event)">
-            </mwl-calendar-month-view>
-            <mwl-calendar-week-view
-              *ngSwitchCase="CalendarView.Week"
-              [viewDate]="viewDate"
-              [events]="events"
-              [refresh]="refresh"
-              (eventClicked)="handleEvent('Clicked', $event.event)"
-              (eventTimesChanged)="eventTimesChanged($event)">
-            </mwl-calendar-week-view>
-            <mwl-calendar-day-view
-              *ngSwitchCase="CalendarView.Day"
-              [viewDate]="viewDate"
-              [events]="events"
-              [refresh]="refresh"
-              (eventClicked)="handleEvent('Clicked', $event.event)"
-              (eventTimesChanged)="eventTimesChanged($event)">
-            </mwl-calendar-day-view>
+      <form>
+        <div class="form-group">
+          <div >
+            <label for="title">Event Title</label>
           </div>
+          <div>
+            <input class="form-control" id="titleId" type="text">
+          </div>
+          <div class="row">
+          <div class="col-md-6">
+            <label for="Starts">Start Time</label>
+            <input class="form-control " id="startId" type="text">
+          </div>
+          <div class="col-md-6">
+            <label for="Ends">End Time</label>
+            <input class="form-control" id="endId" type="text">
+          </div>
+        </div>
+        </div>
+      </form>
     </div>
     
 </div>
