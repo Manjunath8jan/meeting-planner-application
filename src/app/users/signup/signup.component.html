@@ -1,0 +1,163 @@
+<div class="card">
+    <div class="card-header">
+      SignUp here
+    </div>
+  
+    <div class="card-body">
+      <form novalidate
+            (ngSubmit)="signUp(signUpForm)"
+            #signUpForm="ngForm"
+            autocomplete="off">
+        <fieldset>
+  
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="firstNameId">FirstName</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="FirstName"
+                     type="text"
+                     placeholder="First Name (required)"
+                     required
+                     ngModel
+                     name="firstName"
+                     #firstNameVar="ngModel"
+                     [ngClass]="{'is-invalid': (firstNameVar.touched || firstNameVar.dirty) && !firstNameVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="firstNameVar.errors?.required">
+                  First Name name is required.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="lastName">LastName</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="lastName"
+                     type="text"
+                     placeholder="Last Name (required)"
+                     required
+                     ngModel
+                     name="lastName"
+                     #lastNameVar="ngModel"
+                     [ngClass]="{'is-invalid': (lastNameVar.touched || lastNameVar.dirty) && !lastNameVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="lastNameVar.errors?.required">
+                  Last Name name is required.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="emailId">EmailId</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="emailId"
+                     type="text"
+                     placeholder="EmailId (required)"
+                     required
+                     ngModel
+                     name="emailId"
+                     #emailIdVar="ngModel"
+                     [ngClass]="{'is-invalid': (emailIdVar.touched || emailIdVar.dirty) && !emailIdVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="emailIdVar.errors?.required">
+                  EmailId is required.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label" 
+            for="mobileNumber">Mobile Number</label>
+            <div class="col-md-8">
+                <input class="form-control" 
+                type="text" 
+                placeholder="Mobile number (required)"
+                required
+                ngModel
+                name="mobileNumber"
+                #mobileNumberVar="ngModel"
+                [ngClass]="{'is-invalid': (mobileNumberVar.touched || mobileNumberVar.dirty) && !mobileNumberVar.valid }"
+                ng2TelInput/>
+                <span class="invalid-feedback">
+                    <span *ngIf="mobileNumberVar.errors?.required">
+                      Mobile Number is required.
+                    </span>
+                  </span>
+                </div>
+            </div>
+  
+          <div class="form-group row">
+            <label class="col-md-2 col-form--label"
+                   for="passwordId">Password</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="passwordId"
+                     type="password"
+                     placeholder="Password (required)"
+                     required
+                     ngModel
+                     name="password"
+                     #passwordVar="ngModel"
+                     [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="passwordVar.errors?.required">
+                  Password is required.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form--label"
+                   for="confirmPassword">Confirm Password</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="confirmPassword"
+                     type="password"
+                     placeholder="Confirm Password (required)"
+                     required
+                     ngModel
+                     name="confirmPassword"
+                     #confirmPasswordVar  ="ngModel"
+                     [ngClass]="{'is-invalid': (confirmPasswordVar.touched || confirmPasswordVar.dirty) && !confirmPasswordVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="confirmPasswordVar.errors?.required">
+                  Confirming Password is required.
+                </span>
+              </span>
+            </div>
+          </div>
+
+
+  
+          <div class="row">
+            <div class="col-md-4 offset-md-2">
+              <button class="btn btn-primary mr-3"
+                      type="submit"
+                      style="width:80px"
+                      [disabled]="!signUpForm.valid">
+                Sign up
+              </button>
+              <button class="btn btn-outline-secondary"
+                      type="button"
+                      style="width:80px">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  
+    <div class="alert alert-danger"
+         *ngIf="errorMessage">{{errorMessage}}
+    </div>
+  </div>
